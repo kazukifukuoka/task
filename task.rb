@@ -116,9 +116,9 @@ end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
-  p data.keys
-  # 以下に回答を記載
 
+  # 以下に回答を記載
+  p data.keys
 end
 
 def q15
