@@ -153,11 +153,12 @@ class UserQ17
     @admin = params[:admin]
   end
   def info
-    if @admin == true
-      admin = "有り"
-    elsif @admin == false
-      admin = "無し"
-    end
+    # if @admin == true
+    #   admin = "有り"
+    # elsif @admin == false
+    #   admin = "無し"
+    # end
+    admin = @admin ? "有り" : "無し"
     puts <<~TEXT
       名前:#{@name}
       年齢:#{@age}
@@ -185,9 +186,9 @@ class UserQ18
   end
 
   def introduce
-    if @age == 32
+    if @age >= 20
       puts "こんにちは，#{@name}と申します。宜しくお願いいたします。"
-    elsif @age == 10
+    elsif @age >= 0
       puts "はいさいまいど〜，#{@name}です！！！"
     end
   end
@@ -204,13 +205,9 @@ end
 
 class Item
   # 以下を修正して下さい
-
+  attr_reader :name
   def initialize(name:)
     @name = name
-  end
-
-  def name
-    puts "#{@name}"
   end
 end
 
@@ -238,19 +235,32 @@ class Zoo
   end
 
   def info_entry_fee(user)
-    age = user.age
-    name = user.name
-    case age
+    # age = user.age
+    # name = user.name
+    # case age
+    # when 0..5
+    #   puts "#{name}さんの入場料金は #{@entry_fee[:infant]} 円です。"
+    # when 6..12
+    #   puts "#{name}さんの入場料金は #{@entry_fee[:children]} 円です。"
+    # when 13..64
+    #   puts "#{name}さんの入場料金は #{@entry_fee[:adult]} 円です。"
+    # when 65..120
+    #   puts "#{name}さんの入場料金は #{@entry_fee[:senior]} 円です。"
+    # else puts "エラー"
+    # end
+    price  =
+    case user.age
     when 0..5
-      puts "#{name}さんの入場料金は #{@entry_fee[:infant]} 円です。"
+      @entry_fee[:infant]
     when 6..12
-      puts "#{name}さんの入場料金は #{@entry_fee[:children]} 円です。"
+      @entry_fee[:children]
     when 13..64
-      puts "#{name}さんの入場料金は #{@entry_fee[:adult]} 円です。"
+      @entry_fee[:adult]
     when 65..120
-      puts "#{name}さんの入場料金は #{@entry_fee[:senior]} 円です。"
-    else puts "エラー"
+      @entry_fee[:senior]
     end
+
+    puts "#{user.name}さんの入場料は #{price} 円です。"
   end
 end
 
