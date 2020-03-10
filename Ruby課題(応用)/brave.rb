@@ -1,8 +1,7 @@
 require "./character.rb"
 
 class Brave < Character
-  def self.status
-    brave = Brave.new(hp: 500, offense: 150, defense: 100)
+  def status(brave)
     puts <<~TEXT
     brave
       体力：#{brave.hp}
