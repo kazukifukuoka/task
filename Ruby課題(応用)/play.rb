@@ -4,5 +4,5 @@ require "./monster.rb"
 brave = Brave.new(hp: 500, offense: 150, defense: 100)
 monster = Monster.new(hp: 400, offense: 100, defense: 80)
 
-brave.status(brave)
-monster.status(monster)
+brave.status
+monster.status
