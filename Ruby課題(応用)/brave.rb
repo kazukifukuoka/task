@@ -10,10 +10,6 @@ class Brave < Character
     TEXT
   end
 
-  def critical_attack
-    @offense * 1.5
-  end
-
   def attack(monster)
     monster_damage = @offense - monster.defense
     monster.hp -= monster_damage

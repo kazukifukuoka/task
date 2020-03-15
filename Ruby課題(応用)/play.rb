@@ -7,5 +7,13 @@ monster = Monster.new(name: "モンスター", hp: 250, offense: 200, defense: 1
 brave.status
 monster.status
 
-brave.attack(monster)
-monster.attack(brave)
+loop do
+  brave.attack(monster)
+    if monster.hp <= 0
+      break
+    end
+  monster.attack(brave)
+    if brave.hp <= 0
+      break
+    end
+end
